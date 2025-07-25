@@ -4,7 +4,8 @@ set -e
 echo "Running Reminder"
 
 MESSAGE_STYLE="${MESSAGE_STYLE:-corporative}"
-MESSAGE_PATH="tag-reminder-txt/${MESSAGE_STYLE}.txt"
+BASE_PATH="${BASE_PATH}"
+MESSAGE_PATH="${BASE_PATH}/tag-reminder-txt/${MESSAGE_STYLE}.txt"
 
 OUTPUT=""
 while IFS= read -r line || [ -n "$line" ]; do
