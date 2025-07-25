@@ -23,3 +23,4 @@ runs:
         ${{github.action_path}}/release-tag.sh
       env:
         MESSAGE_STYLE: ${{ inputs.message_style}}
+        BASE_PATH: ${{github.action_path}}
