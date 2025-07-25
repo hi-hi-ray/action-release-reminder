@@ -1,0 +1,25 @@
+name: "Release Reminder"
+description: "GitHub Action that displays a release tag reminder in the workflow summary after deployment."
+author: "hi-hi-ray"
+
+inputs:
+  message_style:
+    description: "Determines the style of the message. Can be cute, corporative and scary"
+    required: true
+    default: 'corporative'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Print release tag message reminder
+      shell: bash
+      run: | 
+        chmod +x ${{github.action_path}}/release-tag.sh
+        ${{github.action_path}}/release-tag.sh
+      env:
+        MESSAGE_STYLE: ${{ inputs.message_style}}
